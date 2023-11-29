@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.transactionsService.listar().subscribe(
       resposta => {
-          console.log(resposta)
+        console.log(resposta)
       }
     )
   }

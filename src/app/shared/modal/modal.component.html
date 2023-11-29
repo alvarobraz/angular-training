@@ -1,21 +1,30 @@
 <div class="overlay"></div>
-<section class="modal">
+<form [formGroup]="cadastroForm" class="modal">
   <div class="header-modal">
     <h1 mat-dialog-title>Nova Transação</h1>
     <button class="close-button" mat-dialog-close>X</button>
   </div>
   <div class="content" mat-dialog-content>
-    <input [(ngModel)]="descricao" matInput placeholder="Descrição">
-    <input [(ngModel)]="preco" type="preco" matInput  placeholder="Preço">
-    <input [(ngModel)]="categoria" type="categoria" matInput  placeholder="Categoria">
-
+    <input formControlName="description" matInput placeholder="Descrição">
+    <span *ngIf="cadastroForm.get('description')?.errors && cadastroForm.get('description')?.touched">
+      Campo descrição Obrigatório
+    </span>
+    <input formControlName="price" type="price" matInput  placeholder="Preço">
+    <span *ngIf="cadastroForm.get('price')?.errors && cadastroForm.get('price')?.touched">
+      Campo preço Obrigatório
+    </span>
+    <input formControlName="category" type="category" matInput  placeholder="Categoria">
+    <span *ngIf="cadastroForm.get('category')?.errors && cadastroForm.get('category')?.touched">
+      Campo categoria Obrigatório
+    </span>
   </div>
+  <input formControlName="type" type="hidden">
   <div class="buttons">
     <transaction-type-button (enviarDados)="setDados($event)" variant="income" icon="arrow_circle_up" title="Entrada"/>
     <transaction-type-button (enviarDados)="setDados($event)" variant="outcome" icon="arrow_circle_down" title="Saída"/>
   </div>
   <div class="actions" mat-dialog-actions>
-    <button [disabled]="loading" (click)="saveNewTransaction()" mat-button>{{loading ? 'Carregando' : 'Cadastrar'}}</button>
+    <button [disabled]="loading || !cadastroForm.valid" (click)="saveNewTransaction()" mat-button>{{loading ? 'Carregando' : 'Cadastrar'}}</button>
   </div>
-</section>
+</form>
 

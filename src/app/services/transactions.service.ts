@@ -4,6 +4,9 @@ import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertsComponent } from '../shared/alerts/alerts.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../shared/modal/modal.component';
+// import { ModalComponent } from '../modal/modal.component';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +16,7 @@ export class TransactionsService {
   private apiUrl: string = environment.apiUrl;
   emitEvent: any;
 
-  public durationInSeconds: number = 1
+  public durationInSeconds: number = 2
 
   public loading: boolean = true
 
@@ -22,7 +25,8 @@ export class TransactionsService {
 
   constructor(
     private httpClient: HttpClient,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,
   ) {}
 
   openSnackBar() {
@@ -37,7 +41,7 @@ export class TransactionsService {
     .subscribe({
       next: (value) => {
         this.loadingSubject.next(false);
-        console.log('Postado com sucesso', value)
+        this.dialog.closeAll()
         this.openSnackBar()
       },
       error: (err) => {

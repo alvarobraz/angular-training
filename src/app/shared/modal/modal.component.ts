@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { TransactionsService } from 'src/app/services/transactions.service';
+
 
 @Component({
   selector: 'app-modal',
@@ -12,27 +15,37 @@ export class ModalComponent implements OnInit {
   @Input() icon: string = ""
   @Input() title: string = ""
 
-  public descricao: string = ""
-  public preco!: number
-  public categoria: string = ""
+  public description: string = ""
+  public price!: number
+  public category: string = ""
 
   public getDados!: "income" | "outcome"
 
   public loading!: boolean;
   private loadingSubscription!: Subscription;
 
+  constructor(
+    private transactionsService: TransactionsService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  constructor(private transactionsService: TransactionsService) {}
+  public cadastroForm: FormGroup = this.formBuilder.group({
+    description: ['', Validators.required],
+    price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+    category: ['', Validators.required],
+    type: ['', Validators.required],
+  })
 
   ngOnInit(): void {}
 
   public setDados(event: "income" | "outcome") {
     this.getDados = event;
+    this.cadastroForm.patchValue({ type: event });
   }
 
   saveNewTransaction() {
-    console.log(this.descricao+' - '+this.preco+' - '+this.categoria+' - '+this.getDados)
-    this.transactionsService.salvar(this.descricao, this.getDados, this.categoria, this.preco)
+    // console.log(this.cadastroForm.value.description+' - '+this.cadastroForm.value.price+' - '+this.cadastroForm.value.category+' - '+this.getDados)
+    this.transactionsService.salvar(this.cadastroForm.value.description, this.getDados, this.cadastroForm.value.category, this.cadastroForm.value.price)
     this.loadingSubscription = this.transactionsService.loading$.subscribe(
       (isLoading: boolean) => {
         this.loading = isLoading;
