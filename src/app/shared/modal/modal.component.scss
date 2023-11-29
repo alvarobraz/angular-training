@@ -1,0 +1,105 @@
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  min-width: 32rem;
+  border-radius: 6px;
+  padding: 1.5rem 3rem 2.5rem 3rem;
+  background: var(--gray-800);
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .header-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.5em;
+      color: var(--branco);
+      padding: 0;
+    }
+
+    .close-button {
+      position: relative;
+      background: transparent;
+      border: 0;
+      font-size: 1rem;
+      line-height: 0;
+      cursor: pointer;
+      color: var(--gray-500);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 1px 20px 1px;
+
+    input {
+      border-radius: 6px;
+      border: 0;
+      background: var(--gray-900);
+      color: var(--gray-300);
+      padding: 1rem;
+      margin-bottom: 12px;
+
+      &::placeholder {
+        color: var(--gray-500);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--green-500);
+      }
+    }
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .actions {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 0;
+
+    button {
+      width: 100%;
+      height: 50px;
+      border: 0;
+      background: var(--green-500);
+      color: var(--branco);
+      font-weight: bold;
+      padding: 0 1.25rem;
+      border-radius: 6px;
+      margin-top: 1.25rem;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      &:not(:disabled):hover {
+        background: var(--green-700);
+        transition: background-color 0.2s;
+      }
+    }
+  }
+
+
+}

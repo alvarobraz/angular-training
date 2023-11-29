@@ -1,0 +1,88 @@
+:host {
+
+  button {
+    width: 100%;
+
+    color: var(--branco);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+    border: 0;
+
+    gap: 0.5rem;
+    padding: 1rem;
+
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+  }
+
+
+  .icon-in {
+    color: var(--green-700)
+  }
+
+  .icon-out {
+    color: var(--red-300);
+  }
+
+  .__primary {
+    background: var(--gray-600);
+    &:hover {
+      background: var(--green-700);
+      transition: background-color 0.2s;
+      .icon-in {
+        color: var(--branco);
+        transition: background-color 0.2s;
+      }
+    }
+
+    &:focus {
+      background: var(--green-700);
+      outline: 0;
+      box-shadow: 0 0 0 2px var(--green-500);
+
+      .icon-in {
+        color: var(--branco);
+        transition: background-color 0.2s;
+      }
+    }
+  }
+
+  .__secondary {
+    background: var(--gray-600);
+    border: var(--red-500);
+    &:hover {
+      background: var(--red-500);
+      transition: background-color 0.2s;
+      .icon-out {
+        color: var(--branco);
+        transition: background-color 0.2s;
+      }
+
+    }
+
+    &:focus {
+      background: var(--red-500);
+      outline: 0;
+      box-shadow: 0 0 0 2px var(--red-700);
+
+      .icon-out {
+        color: var(--branco);
+        transition: background-color 0.2s;
+      }
+    }
+  }
+
+}

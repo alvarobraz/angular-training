@@ -1,0 +1,21 @@
+<div class="overlay"></div>
+<section class="modal">
+  <div class="header-modal">
+    <h1 mat-dialog-title>Nova Transação</h1>
+    <button class="close-button" mat-dialog-close>X</button>
+  </div>
+  <div class="content" mat-dialog-content>
+    <input [(ngModel)]="descricao" matInput placeholder="Descrição">
+    <input [(ngModel)]="preco" type="preco" matInput  placeholder="Preço">
+    <input [(ngModel)]="categoria" type="categoria" matInput  placeholder="Categoria">
+
+  </div>
+  <div class="buttons">
+    <transaction-type-button (enviarDados)="setDados($event)" variant="income" icon="arrow_circle_up" title="Entrada"/>
+    <transaction-type-button (enviarDados)="setDados($event)" variant="outcome" icon="arrow_circle_down" title="Saída"/>
+  </div>
+  <div class="actions" mat-dialog-actions>
+      <button (click)="saveNewTransaction()" mat-button>Cadastrar</button>
+  </div>
+</section>
+

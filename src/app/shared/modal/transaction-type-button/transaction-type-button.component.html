@@ -1,0 +1,6 @@
+<button (click)="getDados(variant)" [ngClass]="{'__primary': variant === 'income', '__secondary': variant === 'outcome'}">
+  <mat-icon [ngClass]="{'icon-in': variant === 'income', 'icon-out': variant === 'outcome'}">{{ icon }}</mat-icon>
+  {{ title }}
+</button>
+
+
