@@ -15,12 +15,19 @@ import {MatButtonModule} from '@angular/material/button';
 import { TransactionTypeButtonComponent } from './shared/modal/transaction-type-button/transaction-type-button.component';
 import { FormsModule } from '@angular/forms';
 
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { AlertsComponent } from './shared/alerts/alerts.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ModalComponent,
     TransactionTypeButtonComponent,
+    AlertsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,13 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatTooltipModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

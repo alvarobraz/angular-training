@@ -15,7 +15,7 @@
     <transaction-type-button (enviarDados)="setDados($event)" variant="outcome" icon="arrow_circle_down" title="Saída"/>
   </div>
   <div class="actions" mat-dialog-actions>
-      <button (click)="saveNewTransaction()" mat-button>Cadastrar</button>
+    <button [disabled]="loading" (click)="saveNewTransaction()" mat-button>{{loading ? 'Carregando' : 'Cadastrar'}}</button>
   </div>
 </section>
 
