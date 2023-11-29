@@ -20,14 +20,20 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AlertsComponent } from './shared/alerts/alerts.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SummaryComponent } from './shared/summary/summary.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SummaryCardComponent } from './shared/summary/summary-card/summary-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    HomeComponent,
     ModalComponent,
     TransactionTypeButtonComponent,
     AlertsComponent,
+    SummaryComponent,
+    SummaryCardComponent,
   ],
   imports: [
     BrowserModule,

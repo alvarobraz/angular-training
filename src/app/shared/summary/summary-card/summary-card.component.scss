@@ -1,0 +1,38 @@
+:host {
+  div {
+
+    border-radius: 6px;
+    padding: 2rem;
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--gray-300);
+    }
+
+    strong {
+      display: block;
+      margin-top: 1rem;
+      font-size: 2rem;
+      color: var(--branco);
+    }
+
+    .icon-in {
+      color: var(--green-700)
+    }
+
+    .icon-out {
+      color: var(--red-300);
+    }
+
+  }
+
+  .__primary {
+    background: var(--gray-600);
+  }
+
+  .__secondary {
+    background: var(--green-700);
+  }
+}

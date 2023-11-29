@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertsComponent } from '../shared/alerts/alerts.component';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../shared/modal/modal.component';
-// import { ModalComponent } from '../modal/modal.component';
+
+import { Transaction, TransactionSearch, TransactionSearchResponse } from '../model/types';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,8 @@ export class TransactionsService {
 
   private loadingSubject = new Subject<boolean>();
   public loading$: Observable<boolean> = this.loadingSubject.asObservable();
+
+  public transactions!: TransactionSearch[]
 
   constructor(
     private httpClient: HttpClient,
@@ -51,9 +54,20 @@ export class TransactionsService {
 
   }
 
-  listar() : Observable<any>{
+  listAllTransaction(): Observable<Transaction[]> {
     const sort =  'desc'
     return this.httpClient.get<any>(`${this.apiUrl}transactions/?sort=${sort}`);
+  }
+
+  listTransaction(): Observable<TransactionSearchResponse> {
+    const sort =  'desc'
+    const allTransaction =  this.httpClient.get<TransactionSearchResponse>(`${this.apiUrl}transactions/?sort=${sort}`);
+    return allTransaction.pipe(
+      tap( res => res ),
+      tap( res => {
+        this.transactions = res.transactionSearch
+      })
+    )
   }
 
 

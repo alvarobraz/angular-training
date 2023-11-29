@@ -1,0 +1,8 @@
+<div [ngClass]="{'__primary': variant === 'income' || variant === 'outcome', '__secondary': variant === 'result'}">
+  <header>
+    <span>{{ title }}</span>
+    <mat-icon [ngClass]="{'icon-in': variant === 'income', 'icon-out': variant === 'outcome'}">{{ icon }}</mat-icon>
+  </header>
+
+  <strong>{{ price }}</strong>
+</div>

@@ -18,11 +18,11 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.transactionsService.listar().subscribe(
-      resposta => {
-        console.log(resposta)
-      }
-    )
+    // this.transactionsService.listar().subscribe(
+    //   resposta => {
+    //     console.log(resposta)
+    //   }
+    // )
   }
 
   openModalTransaction() {
