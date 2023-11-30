@@ -10,11 +10,15 @@ import { formatTransactions } from 'src/app/utils/utils';
 })
 export class SearchComponent {
 
-  public transactionsSearch!: TransactionSearch[]
+  public transactionsSearch: TransactionSearch[] = []
   public query: string = ""
 
   constructor(private transactionsService: TransactionsService) {
     this.transactionsService.transactionSaved$.subscribe(() => {
+      this.fetchTransactions(this.query);
+    });
+
+    this.transactionsService.transactionDeleted$.subscribe(() => {
       this.fetchTransactions(this.query);
     });
   }
@@ -35,6 +39,10 @@ export class SearchComponent {
 
   public getSearch(value: string){
     this.fetchTransactions(value);
+  }
+
+  public deleteTransaction(transactionId: string): any {
+    this.transactionsService.delete(transactionId)
   }
 
 }

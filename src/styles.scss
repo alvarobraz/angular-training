@@ -33,3 +33,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   max-height: 100%;
   top: 25%;
 }
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  max-width: 672px;
+  background: #00B37E !important;
+}

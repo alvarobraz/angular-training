@@ -19,6 +19,10 @@ export class SummaryComponent implements OnInit {
     this.transactionsService.transactionSaved$.subscribe(() => {
       this.fetchTransactions(this.query);
     });
+
+    this.transactionsService.transactionDeleted$.subscribe(() => {
+      this.fetchTransactions(this.query);
+    });
   }
 
   ngOnInit(): void {

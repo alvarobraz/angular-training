@@ -43,7 +43,7 @@ export class ModalComponent implements OnInit {
   }
 
   saveNewTransaction() {
-    this.transactionsService.salvar(this.cadastroForm.value.description, this.getDados, this.cadastroForm.value.category, this.cadastroForm.value.price)
+    this.transactionsService.save(this.cadastroForm.value.description, this.getDados, this.cadastroForm.value.category, this.cadastroForm.value.price)
     this.transactionsService.loading$.subscribe(
       (isLoading: boolean) => {
         this.loading = isLoading;

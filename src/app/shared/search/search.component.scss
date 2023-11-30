@@ -5,6 +5,19 @@
     margin: 4rem auto 0;
     padding: 0 1.5rem;
 
+    .enpty-transactions {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5rem;
+
+      h1 {
+        font-size: 2rem;
+        color: var(--branco);
+      }
+    }
+
     table {
       width: 100%;
       border-collapse: separate;
@@ -25,6 +38,20 @@
         &:last-child {
           border-top-right-radius: 6px;
           border-bottom-right-radius: 6px;
+          padding: 1.25rem 0.5rem 1.25rem 0rem;
+
+          .mat-icon {
+            -webkit-user-select: none;
+            user-select: none;
+            background-repeat: no-repeat;
+            display: inline-block;
+            fill: currentColor;
+            height: 24px;
+            width: 24px;
+            overflow: hidden;
+            color: var(--red-100);
+            cursor: pointer;
+          }
         }
       }
     }

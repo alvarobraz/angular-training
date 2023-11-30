@@ -23,6 +23,9 @@ export class TransactionsService {
   private transactionSavedSubject = new Subject<void>();
   public transactionSaved$: Observable<void> = this.transactionSavedSubject.asObservable();
 
+  private transactionDeletedSubject = new Subject<void>();
+  public transactionDeleted$: Observable<void> = this.transactionDeletedSubject.asObservable();
+
   public transactions!: TransactionSearch[]
 
   public query: string = "";
@@ -33,20 +36,21 @@ export class TransactionsService {
     public dialog: MatDialog,
   ) {}
 
-  openSnackBar() {
+  openSnackBar(title: string) {
     this._snackBar.openFromComponent(AlertsComponent, {
       duration: this.durationInSeconds * 1000,
+      data: { title }
     });
   }
 
-  salvar(description: string, type: string, category: string, price: number) {
+  save(description: string, type: string, category: string, price: number) {
     this.loadingSubject.next(true);
     this.httpClient.post(`${this.apiUrl}transactions`, { description, type, category, price })
       .subscribe({
         next: () => {
           this.loadingSubject.next(false);
           this.dialog.closeAll();
-          this.openSnackBar();
+          this.openSnackBar('Transação postada com sucesso!');
           this.transactionSavedSubject.next();
         },
         error: (err) => {
@@ -54,6 +58,23 @@ export class TransactionsService {
         }
       });
   }
+
+  delete(transactionId: string) {
+    this.loadingSubject.next(true);
+    this.httpClient.delete(`${this.apiUrl}transactions/${transactionId}`)
+      .subscribe({
+        next: () => {
+          this.loadingSubject.next(false);
+          this.dialog.closeAll();
+          this.openSnackBar('Transação deletada com sucesso!');
+          this.transactionDeletedSubject.next();
+        },
+        error: (err) => {
+          console.log('Error deleting transaction', err);
+        }
+      });
+  }
+
 
   // listAllTransaction(): Observable<Transaction[]> {
   //   const sort =  'desc'
