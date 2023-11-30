@@ -10,19 +10,11 @@ import { TransactionsService } from 'src/app/services/transactions.service';
 })
 export class HeaderComponent implements OnInit {
 
-  revealModal: boolean = false
-
   constructor(
-    public dialog: MatDialog,
-    private transactionsService: TransactionsService
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    // this.transactionsService.listar().subscribe(
-    //   resposta => {
-    //     console.log(resposta)
-    //   }
-    // )
   }
 
   openModalTransaction() {

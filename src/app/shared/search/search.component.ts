@@ -13,9 +13,11 @@ export class SearchComponent {
   public transactionsSearch!: TransactionSearch[]
   public query: string = ""
 
-  constructor(
-    private transactionsService: TransactionsService
-  ) {}
+  constructor(private transactionsService: TransactionsService) {
+    this.transactionsService.transactionSaved$.subscribe(() => {
+      this.fetchTransactions(this.query);
+    });
+  }
 
   ngOnInit(): void {
     this.fetchTransactions(this.query);

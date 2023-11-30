@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertsComponent } from '../shared/alerts/alerts.component';
 import { MatDialog } from '@angular/material/dialog';
 
-import { Transaction, TransactionSearch, TransactionSearchResponse } from '../model/types';
-
+import { TransactionSearch, TransactionSearchResponse } from '../model/types';
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +14,18 @@ import { Transaction, TransactionSearch, TransactionSearchResponse } from '../mo
 export class TransactionsService {
 
   private apiUrl: string = environment.apiUrl;
-  emitEvent: any;
 
   public durationInSeconds: number = 2
-
-  public loading: boolean = true
 
   private loadingSubject = new Subject<boolean>();
   public loading$: Observable<boolean> = this.loadingSubject.asObservable();
 
+  private transactionSavedSubject = new Subject<void>();
+  public transactionSaved$: Observable<void> = this.transactionSavedSubject.asObservable();
+
   public transactions!: TransactionSearch[]
+
+  public query: string = "";
 
   constructor(
     private httpClient: HttpClient,
@@ -39,25 +40,25 @@ export class TransactionsService {
   }
 
   salvar(description: string, type: string, category: string, price: number) {
-  this.loadingSubject.next(true);
-   this.httpClient.post(`${this.apiUrl}transactions`, { description, type, category, price })
-    .subscribe({
-      next: (value) => {
-        this.loadingSubject.next(false);
-        this.dialog.closeAll()
-        this.openSnackBar()
-      },
-      error: (err) => {
-        console.log('Erro no post', err)
-      }
-    })
-
+    this.loadingSubject.next(true);
+    this.httpClient.post(`${this.apiUrl}transactions`, { description, type, category, price })
+      .subscribe({
+        next: () => {
+          this.loadingSubject.next(false);
+          this.dialog.closeAll();
+          this.openSnackBar();
+          this.transactionSavedSubject.next();
+        },
+        error: (err) => {
+          console.log('Erro no post', err);
+        }
+      });
   }
 
-  listAllTransaction(): Observable<Transaction[]> {
-    const sort =  'desc'
-    return this.httpClient.get<any>(`${this.apiUrl}transactions/?sort=${sort}`);
-  }
+  // listAllTransaction(): Observable<Transaction[]> {
+  //   const sort =  'desc'
+  //   return this.httpClient.get<any>(`${this.apiUrl}transactions/?sort=${sort}`);
+  // }
 
   listTransaction(query: string): Observable<TransactionSearchResponse> {
     const sort =  'desc'

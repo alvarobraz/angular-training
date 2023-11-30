@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TransactionSearchResponse } from 'src/app/model/types';
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { calculateTotals, priceFormatter } from 'src/app/utils/utils';
@@ -15,12 +15,18 @@ export class SummaryComponent implements OnInit {
   public priceResult!: string
   public query: string = ""
 
-  constructor(
-    private transactionsService: TransactionsService
-  ) {}
+  constructor(private transactionsService: TransactionsService) {
+    this.transactionsService.transactionSaved$.subscribe(() => {
+      this.fetchTransactions(this.query);
+    });
+  }
 
   ngOnInit(): void {
-    this.transactionsService.listTransaction(this.query).subscribe(
+    this.fetchTransactions(this.query);
+  }
+
+  fetchTransactions(query: string): void {
+    this.transactionsService.listTransaction(query).subscribe(
       (response: TransactionSearchResponse) => {
         if (response.transactionSearch) {
           const { income, outcome } = calculateTotals(response.transactionSearch);

@@ -22,7 +22,6 @@ export class ModalComponent implements OnInit {
   public getDados!: "income" | "outcome"
 
   public loading!: boolean;
-  private loadingSubscription!: Subscription;
 
   constructor(
     private transactionsService: TransactionsService,
@@ -44,9 +43,8 @@ export class ModalComponent implements OnInit {
   }
 
   saveNewTransaction() {
-    // console.log(this.cadastroForm.value.description+' - '+this.cadastroForm.value.price+' - '+this.cadastroForm.value.category+' - '+this.getDados)
     this.transactionsService.salvar(this.cadastroForm.value.description, this.getDados, this.cadastroForm.value.category, this.cadastroForm.value.price)
-    this.loadingSubscription = this.transactionsService.loading$.subscribe(
+    this.transactionsService.loading$.subscribe(
       (isLoading: boolean) => {
         this.loading = isLoading;
       }

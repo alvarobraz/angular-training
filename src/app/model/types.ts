@@ -6,7 +6,6 @@ export interface TransactionSearch {
   createdAt: Date
 }
 
-// ...
 
 export interface TransactionSearchResponse {
   transactionSearch: TransactionSearch[];

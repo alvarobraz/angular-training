@@ -1,10 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-interface TransactionTypeButtonProps {
-  variant: 'income' | 'outcome'
-}
-
-
 @Component({
   selector: 'transaction-type-button',
   templateUrl: './transaction-type-button.component.html',
@@ -20,18 +15,7 @@ export class TransactionTypeButtonComponent {
 
   @Output() public enviarDados = new EventEmitter()
 
-  // tipo(type: string) {
-  //   alert(type)
-  //   if(type === 'outcome') {
-  //     this.selectedType = 'outcome'
-  //   }
-  //   else {
-  //     this.selectedType = 'income'
-  //   }
-  // }
-
   public getDados(type: string) {
-    console.log(this.selectedType)
     if(type === 'outcome') {
       this.selectedType = 'outcome'
     }
