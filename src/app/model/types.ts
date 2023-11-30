@@ -1,16 +1,9 @@
-// export interface TransactionSearch {
-//   transactionSearch: {
-//     description: string;
-//     price: number;
-//     category: string;
-//     type: 'income' | 'outcome';
-//   }
-// }[]
 export interface TransactionSearch {
   description: string;
-  price: number;
+  price: number | string;
   category: string;
   type: 'income' | 'outcome';
+  createdAt: Date
 }
 
 // ...
@@ -20,9 +13,9 @@ export interface TransactionSearchResponse {
 }
 
 export interface Transaction {
-  limit: number;
-  page: number;
-  pages: number;
+  limit: number | null;
+  page: number | null;
+  pages: number | null;
   total: number;
   transactionSearch: TransactionSearch[]
 }

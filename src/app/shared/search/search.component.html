@@ -1,0 +1,13 @@
+<main>
+  <search-form></search-form>
+  <table>
+    <tbody>
+      <tr *ngFor="let transaction of transactionsSearch">
+        <td>{{ transaction.description }}</td>
+        <td [ngClass]="{'in-come': transaction.type === 'income', 'out-come': transaction.type === 'outcome'}">{{ transaction.type === 'income' ? transaction.price : '-'+transaction.price }}</td>
+        <td>{{ transaction.category }}</td>
+        <td>{{ transaction.createdAt | date:'dd/MM/yyyy' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</main>

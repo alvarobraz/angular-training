@@ -23,6 +23,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SummaryComponent } from './shared/summary/summary.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SummaryCardComponent } from './shared/summary/summary-card/summary-card.component';
+import { SearchFormComponent } from './shared/search/search-form/search-form.component';
+import { SearchComponent } from './shared/search/search.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { SummaryCardComponent } from './shared/summary/summary-card/summary-card
     AlertsComponent,
     SummaryComponent,
     SummaryCardComponent,
+    SearchFormComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
