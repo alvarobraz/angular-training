@@ -59,9 +59,10 @@ export class TransactionsService {
     return this.httpClient.get<any>(`${this.apiUrl}transactions/?sort=${sort}`);
   }
 
-  listTransaction(): Observable<TransactionSearchResponse> {
+  listTransaction(query: string): Observable<TransactionSearchResponse> {
     const sort =  'desc'
-    const allTransaction =  this.httpClient.get<TransactionSearchResponse>(`${this.apiUrl}transactions/?sort=${sort}`);
+    // const name = "lu"
+    const allTransaction =  this.httpClient.get<TransactionSearchResponse>(`${this.apiUrl}transactions/?name=${query}&sort=${sort}`);
     return allTransaction.pipe(
       tap( res => res ),
       tap( res => {

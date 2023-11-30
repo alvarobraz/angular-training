@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Transaction, TransactionSearch, TransactionSearchResponse } from 'src/app/model/types';
+import { TransactionSearch, TransactionSearchResponse } from 'src/app/model/types';
 import { TransactionsService } from 'src/app/services/transactions.service';
-import { priceFormatter } from 'src/app/utils/utils';
+import { formatTransactions } from 'src/app/utils/utils';
 
 @Component({
   selector: 'search',
@@ -9,28 +9,30 @@ import { priceFormatter } from 'src/app/utils/utils';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-priceFormatter(arg0: number) {
-throw new Error('Method not implemented.');
-}
 
   public transactionsSearch!: TransactionSearch[]
-
+  public query: string = ""
 
   constructor(
     private transactionsService: TransactionsService
   ) {}
 
   ngOnInit(): void {
-    this.transactionsService.listTransaction().subscribe(
+    this.fetchTransactions(this.query);
+  }
+
+  fetchTransactions(query: string): void {
+    this.transactionsService.listTransaction(query).subscribe(
       (response: TransactionSearchResponse) => {
         if (response.transactionSearch) {
-          this.transactionsSearch = response.transactionSearch.map(transaction => ({
-            ...transaction,
-            price: priceFormatter.format(Number(transaction.price)),
-          }));
+          this.transactionsSearch = formatTransactions(response.transactionSearch);
         }
       }
     );
+  }
+
+  public getSearch(value: string){
+    this.fetchTransactions(value);
   }
 
 }

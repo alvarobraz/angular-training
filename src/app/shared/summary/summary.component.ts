@@ -13,13 +13,14 @@ export class SummaryComponent implements OnInit {
   public priceIncome!: string
   public priceOutCome!: string
   public priceResult!: string
+  public query: string = ""
 
   constructor(
     private transactionsService: TransactionsService
   ) {}
 
   ngOnInit(): void {
-    this.transactionsService.listTransaction().subscribe(
+    this.transactionsService.listTransaction(this.query).subscribe(
       (response: TransactionSearchResponse) => {
         if (response.transactionSearch) {
           const { income, outcome } = calculateTotals(response.transactionSearch);

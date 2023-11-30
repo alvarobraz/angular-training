@@ -1,5 +1,5 @@
 <main>
-  <search-form></search-form>
+  <search-form (emmitSearch)="getSearch($event)"></search-form>
   <table>
     <tbody>
       <tr *ngFor="let transaction of transactionsSearch">

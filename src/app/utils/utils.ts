@@ -18,3 +18,10 @@ export function calculateTotals(transactions: TransactionSearch[]): { income: nu
     { income: 0, outcome: 0 }
   );
 }
+
+export function formatTransactions(transactions: TransactionSearch[]): TransactionSearch[] {
+  return transactions.map(transaction => ({
+    ...transaction,
+    price: priceFormatter.format(Number(transaction.price)),
+  }));
+}
