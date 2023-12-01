@@ -1,0 +1,37 @@
+:host {
+  main {
+    background: var(--gray-700);
+    padding: 2.5rem 0 7.5rem;
+    max-width: 800px;
+	}
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    display: block;
+    justify-content: flex-start;
+    align-items: center;
+
+    h1 {
+      color: var(--gray-100);
+      text-align: center;
+    }
+
+    p {
+      color: var(--gray-100);
+      text-align: left;
+      line-height: 1.5rem;
+    }
+
+    ul {
+      padding-left: 0.7rem;
+      li {
+        color: var(--gray-100);
+        text-align: left;
+        line-height: 1.5rem;
+      }
+    }
+  }
+}

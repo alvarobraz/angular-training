@@ -25,6 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SummaryCardComponent } from './shared/summary/summary-card/summary-card.component';
 import { SearchFormComponent } from './shared/search/search-form/search-form.component';
 import { SearchComponent } from './shared/search/search.component';
+import { DescriptionComponent } from './pages/description/description.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SearchComponent } from './shared/search/search.component';
     SummaryCardComponent,
     SearchFormComponent,
     SearchComponent,
+    DescriptionComponent,
   ],
   imports: [
     BrowserModule,
