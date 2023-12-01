@@ -38,42 +38,6 @@ export function formatPrice(price: string): string {
 
 }
 
-// export function otherFormatPrice(value: string): string {
-//   console.log('otherFormatPrice => '+value)
-//   const numericValue = parseFloat(value.replace(/\D/g, '')) / 100;
-
-//   if (isNaN(numericValue)) {
-//     return 'R$ 0,00';
-//   }
-
-//   return numericValue.toLocaleString('pt-BR', {
-//     style: 'currency',
-//     currency: 'BRL',
-//     minimumFractionDigits: 2,
-//     maximumFractionDigits: 2
-//   });
-// }
-
-// export function formatPrice(value: string): string {
-//   // Remove todos os caracteres não numéricos
-//   const numericValue = parseFloat(value.replace(/\D/g, '')) / 100;
-
-//   // Verifica se o valor é um número válido
-//   if (isNaN(numericValue)) {
-//     return 'R$ 0,00';
-//   }
-
-//   // Formata o valor numérico para uma string no formato de moeda brasileira
-//   const formattedPrice = numericValue.toLocaleString('pt-BR', {
-//     style: 'currency',
-//     currency: 'BRL',
-//     minimumFractionDigits: 2,
-//     maximumFractionDigits: 2
-//   });
-
-//   return formattedPrice;
-// }
-
 export function extractNumericOfTheValue(value: string): string {
   return value.replace(/\D/g, '');
 }

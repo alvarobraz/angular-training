@@ -22,10 +22,6 @@
     border-radius: 6px;
     cursor: pointer;
 
-    // .icon-in {
-    //   color: var(--branco);
-    // }
-
     &:disabled {
       opacity: 0.6;
       cursor: not-allowed;
@@ -63,10 +59,6 @@
       color: var(--branco);
       transition: background-color 0.2s;
     }
-  }
-
-  .__green {
-    background: var(--green-700);
   }
 
   .__primary {

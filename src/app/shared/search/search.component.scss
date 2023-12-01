@@ -13,7 +13,7 @@
       padding: 5rem;
 
       h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: var(--branco);
       }
     }
@@ -29,31 +29,13 @@
         padding: 1.25rem 2rem;
         background: var(--gray-700);
 
-
         &:first-child {
           border-top-left-radius: 6px;
           border-bottom-left-radius: 6px;
         }
 
-        &:nth-child(5) {
-          padding: 1.25rem 0.5rem 1.25rem 0rem;
-          .mat-icon {
-            -webkit-user-select: none;
-            user-select: none;
-            background-repeat: no-repeat;
-            display: inline-block;
-            fill: currentColor;
-            height: 24px;
-            width: 24px;
-            overflow: hidden;
-            color: var(--yellow);
-            cursor: pointer;
-          }
-        }
-
+        &:nth-child(5),
         &:last-child {
-          border-top-right-radius: 6px;
-          border-bottom-right-radius: 6px;
           padding: 1.25rem 0.5rem 1.25rem 0rem;
 
           .mat-icon {
@@ -65,12 +47,23 @@
             height: 24px;
             width: 24px;
             overflow: hidden;
-            color: var(--red-100);
             cursor: pointer;
           }
         }
       }
+
+      @media (max-width: 767px) {
+        table {
+          width: 70%;
+
+        }
+        td {
+          padding: 0.5rem 0.5rem;
+          font-size: 0.8rem;
+        }
+      }
     }
+
 
     .in-come {
       color: var(--green-300);
