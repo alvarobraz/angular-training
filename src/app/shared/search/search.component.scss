@@ -34,8 +34,25 @@
           border-bottom-left-radius: 6px;
         }
 
-        &:nth-child(5),
+        &:nth-child(5) {
+          padding: 1.25rem 0.5rem 1.25rem 0rem;
+          .mat-icon {
+            -webkit-user-select: none;
+            user-select: none;
+            background-repeat: no-repeat;
+            display: inline-block;
+            fill: currentColor;
+            height: 24px;
+            width: 24px;
+            overflow: hidden;
+            color: var(--yellow);
+            cursor: pointer;
+          }
+        }
+
         &:last-child {
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
           padding: 1.25rem 0.5rem 1.25rem 0rem;
 
           .mat-icon {
@@ -47,6 +64,7 @@
             height: 24px;
             width: 24px;
             overflow: hidden;
+            color: var(--red-100);
             cursor: pointer;
           }
         }
