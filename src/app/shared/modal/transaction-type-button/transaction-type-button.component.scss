@@ -3,6 +3,7 @@
   button {
     width: 100%;
 
+    background: var(--gray-600);
     color: var(--branco);
 
     display: flex;
@@ -21,6 +22,10 @@
     border-radius: 6px;
     cursor: pointer;
 
+    // .icon-in {
+    //   color: var(--branco);
+    // }
+
     &:disabled {
       opacity: 0.6;
       cursor: not-allowed;
@@ -36,8 +41,35 @@
     color: var(--red-300);
   }
 
+  .income {
+    background: var(--green-700);
+    color: var(--branco);
+    outline: 0;
+    box-shadow: 0 0 0 2px var(--green-300);
+
+    .icon-in {
+      color: var(--branco);
+      transition: background-color 0.2s;
+    }
+  }
+
+  .outcome {
+    background: var(--red-500);
+    color: var(--branco);
+    outline: 0;
+    box-shadow: 0 0 0 2px var(--red-300);
+
+    .icon-in {
+      color: var(--branco);
+      transition: background-color 0.2s;
+    }
+  }
+
+  .__green {
+    background: var(--green-700);
+  }
+
   .__primary {
-    background: var(--gray-600);
     &:hover {
       background: var(--green-700);
       transition: background-color 0.2s;
@@ -50,7 +82,7 @@
     &:focus {
       background: var(--green-700);
       outline: 0;
-      box-shadow: 0 0 0 2px var(--green-500);
+      box-shadow: 0 0 0 2px var(--green-300);
 
       .icon-in {
         color: var(--branco);
@@ -60,7 +92,6 @@
   }
 
   .__secondary {
-    background: var(--gray-600);
     border: var(--red-500);
     &:hover {
       background: var(--red-500);
@@ -75,7 +106,7 @@
     &:focus {
       background: var(--red-500);
       outline: 0;
-      box-shadow: 0 0 0 2px var(--red-700);
+      box-shadow: 0 0 0 2px var(--red-300);
 
       .icon-out {
         color: var(--branco);

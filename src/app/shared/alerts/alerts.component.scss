@@ -3,12 +3,31 @@ section {
   justify-content: center;
   align-items: center;
 
-  background: var(--green-300);
-  color: var(--branco);
+  div {
+    width: 100%;
 
-  padding: 1.5rem;
+    padding: 1rem;
 
-  font-size: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
 
-  border-radius: 0.4rem
+    border-radius: 0rem;
+
+    color: var(--branco);
+  }
+
+
+  .__green {
+    background: var(--green-300) !important;
+  }
+
+  .__red {
+    background: var(--red-300) !important;
+  }
+
+
 }
+
+
+
+

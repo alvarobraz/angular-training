@@ -1,28 +1,42 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'transaction-type-button',
   templateUrl: './transaction-type-button.component.html',
   styleUrls: ['./transaction-type-button.component.scss']
 })
-export class TransactionTypeButtonComponent {
+export class TransactionTypeButtonComponent implements OnInit, OnChanges {
 
   @Input() icon: string = ""
   @Input() title: string = ""
   @Input() variant: string = ""
 
-  public selectedType: string = ''
+  @Input() type: string = ""
+
+  @Input() selectedType: string = ''
 
   @Output() public enviarDados = new EventEmitter()
 
+  ngOnInit(): void {
+    console.log(this.selectedType)
+  }
+
+  ngOnChanges(): void {
+    console.log('ngOnChanges() => '+this.selectedType)
+  }
+
   public getDados(type: string) {
     if(type === 'outcome') {
-      this.selectedType = 'outcome'
+      this.type = 'outcome'
+      this.selectedType = ""
+      console.log('getDados() => '+this.type)
     }
     else {
-      this.selectedType = 'income'
+      this.type = 'income'
+      this.selectedType = ""
+      // console.log('getDados() => '+this.type)
     }
-    this.enviarDados.emit(this.selectedType)
+    this.enviarDados.emit(this.type)
   }
 
 }

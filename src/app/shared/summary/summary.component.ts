@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionSearchResponse } from 'src/app/model/types';
 import { TransactionsService } from 'src/app/services/transactions.service';
-import { calculateTotals, priceFormatter } from 'src/app/utils/utils';
+import { calculateTotals, formatPrice } from 'src/app/utils/utils';
 
 @Component({
   selector: 'summary',
@@ -23,6 +23,10 @@ export class SummaryComponent implements OnInit {
     this.transactionsService.transactionDeleted$.subscribe(() => {
       this.fetchTransactions(this.query);
     });
+
+    this.transactionsService.transactionUpdated$.subscribe(() => {
+      this.fetchTransactions(this.query);
+    });
   }
 
   ngOnInit(): void {
@@ -35,9 +39,10 @@ export class SummaryComponent implements OnInit {
         if (response.transactionSearch) {
           const { income, outcome } = calculateTotals(response.transactionSearch);
 
-          this.priceIncome = priceFormatter.format(income);
-          this.priceOutCome = priceFormatter.format(outcome);
-          this.priceResult = priceFormatter.format(income - outcome);
+          this.priceIncome = formatPrice(income.toString());
+          this.priceOutCome = formatPrice(outcome.toString());
+          const result = income - outcome
+          this.priceResult = formatPrice(result.toString());
         }
       }
     );

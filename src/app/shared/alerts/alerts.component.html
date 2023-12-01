@@ -1,3 +1,5 @@
 <section>
-  {{ title }}
+  <div [ngClass]="{'__green': colorBox === 'green', '__red': colorBox === 'red'}">
+    {{ title }}
+  </div>
 </section>

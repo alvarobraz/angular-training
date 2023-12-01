@@ -9,17 +9,20 @@ import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar'
 export class AlertsComponent {
 
   @Input() title!: string;
+  @Input() colorBox!: string;
 
   constructor(
     private snackBarRef: MatSnackBarRef<AlertsComponent>,
-    @Inject(MAT_SNACK_BAR_DATA) public data: any
+    @Inject(MAT_SNACK_BAR_DATA) public data: { title: string, colorBox: string }
   ) {
+    console.log(data)
     if (data && data.title) {
       this.title = data.title;
     }
+    if (data && data.colorBox) {
+      this.colorBox = data.colorBox;
+    }
   }
-
-  // snackBarRef = inject(MatSnackBarRef);
 
   close() {
     this.snackBarRef.dismiss();
