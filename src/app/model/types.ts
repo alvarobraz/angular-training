@@ -7,9 +7,8 @@ export interface TransactionSearch {
   createdAt: Date
 }
 
-
-export interface TransactionSearchResponse {
-  transactionSearch: TransactionSearch[];
+export interface TransactionSearchModal {
+  transactionSearch: TransactionSearch;
 }
 
 export interface Transaction {

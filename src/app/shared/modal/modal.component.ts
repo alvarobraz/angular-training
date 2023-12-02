@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TransactionSearchModal } from 'src/app/model/types';
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { extractNumericOfTheValue, formatPrice } from 'src/app/utils/utils';
 
@@ -33,7 +34,7 @@ export class ModalComponent implements OnInit {
   constructor(
     private transactionsService: TransactionsService,
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: TransactionSearchModal,
   ) {
     this.cadastroForm = this.formBuilder.group({
       id: [''],
@@ -51,13 +52,13 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.data && this.data.transactionData) {
-      const transaction = this.data.transactionData;
+    if (this.data && this.data.transactionSearch) {
+      const transaction = this.data.transactionSearch;
 
       this.cadastroForm.patchValue({
         id: transaction._id,
         description: transaction.description,
-        price: transaction.price.replace(/[^\d]/g, ''),
+        price: transaction.price.toString().replace(/[^\d]/g, ''),
         category: transaction.category,
         type: transaction.type
       });

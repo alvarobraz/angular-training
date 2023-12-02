@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionSearchResponse } from 'src/app/model/types';
+import { Transaction } from 'src/app/model/types';
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { calculateTotals, formatPrice } from 'src/app/utils/utils';
 
@@ -35,7 +35,7 @@ export class SummaryComponent implements OnInit {
 
   fetchTransactions(query: string): void {
     this.transactionsService.listTransaction(query).subscribe(
-      (response: TransactionSearchResponse) => {
+      (response: Partial<Transaction>) => {
         if (response.transactionSearch) {
           const { income, outcome } = calculateTotals(response.transactionSearch);
 

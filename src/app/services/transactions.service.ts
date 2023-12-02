@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertsComponent } from '../shared/alerts/alerts.component';
 import { MatDialog } from '@angular/material/dialog';
 
-import { TransactionSearch, TransactionSearchResponse } from '../model/types';
+import { Transaction, TransactionSearch } from '../model/types';
 
 @Injectable({
   providedIn: 'root'
@@ -105,20 +105,13 @@ export class TransactionsService {
       });
   }
 
-
-  // listAllTransaction(): Observable<Transaction[]> {
-  //   const sort =  'desc'
-  //   return this.httpClient.get<any>(`${this.apiUrl}transactions/?sort=${sort}`);
-  // }
-
-  listTransaction(query: string): Observable<TransactionSearchResponse> {
+  listTransaction(query: string): Observable<Partial<Transaction>> {
     const sort =  'desc'
-    // const name = "lu"
-    const allTransaction =  this.httpClient.get<TransactionSearchResponse>(`${this.apiUrl}transactions/?name=${query}&sort=${sort}`);
+    const allTransaction =  this.httpClient.get<Partial<Transaction>>(`${this.apiUrl}transactions/?name=${query}&sort=${sort}`);
     return allTransaction.pipe(
       tap( res => res ),
       tap( res => {
-        this.transactions = res.transactionSearch
+        this.transactions = res.transactionSearch!
         console.log(this.transactions)
       })
     )

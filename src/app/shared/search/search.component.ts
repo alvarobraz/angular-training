@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { TransactionSearch, TransactionSearchResponse } from 'src/app/model/types';
+import { Transaction, TransactionSearch } from 'src/app/model/types';
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { formatTransactions } from 'src/app/utils/utils';
 import { ModalComponent } from '../modal/modal.component';
@@ -38,7 +38,7 @@ export class SearchComponent {
 
   fetchTransactions(query: string): void {
     this.transactionsService.listTransaction(query).subscribe(
-      (response: TransactionSearchResponse) => {
+      (response: Partial<Transaction>) => {
         if (response.transactionSearch) {
           this.transactionsSearch = formatTransactions(response.transactionSearch);
         }
@@ -50,11 +50,11 @@ export class SearchComponent {
     this.fetchTransactions(value);
   }
 
-  public getTransactionToUpdate(transaction: TransactionSearch): any {
+  public getTransactionToUpdate(transaction: TransactionSearch): void {
     console.log(transaction)
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
-        transactionData: transaction
+        transactionSearch: transaction
       }
     });
 
@@ -63,7 +63,7 @@ export class SearchComponent {
     });
   }
 
-  public deleteTransaction(transactionId: string): any {
+  public deleteTransaction(transactionId: string): void {
     this.transactionsService.delete(transactionId)
   }
 
