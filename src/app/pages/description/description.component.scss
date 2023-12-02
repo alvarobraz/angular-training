@@ -14,6 +14,19 @@
     justify-content: flex-start;
     align-items: center;
 
+    .mat-icon {
+      -webkit-user-select: none;
+      user-select: none;
+      background-repeat: no-repeat;
+      display: inline-block;
+      fill: currentColor;
+      height: 24px;
+      width: 24px;
+      overflow: hidden;
+      color: var(--gray-100);
+      cursor: pointer;
+    }
+
     h1 {
       color: var(--gray-100);
       text-align: center;

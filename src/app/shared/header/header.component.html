@@ -1,7 +1,12 @@
 <header>
   <div class="container">
-    <img src="../../../assets/logo.svg" alt="Logo DT Money">
-    <button (click)="openModalTransaction()">Nova Transação</button>
+    <div class="headerLogo">
+      <img src="../../../assets/logo.svg" alt="Logo DT Money">
+    </div>
+    <div class="navigationButtons">
+      <a routerLink="/descricao"><mat-icon>description</mat-icon></a>
+      <button (click)="openModalTransaction()">Nova Transação</button>
+    </div>
   </div>
 </header>
 
