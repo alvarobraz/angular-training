@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { MaterialModule } from 'src/app/material/material.module';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
+// import { HomeRoutingModule } from './home-routing.module';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -13,7 +16,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    MatIconModule,
+    // HomeRoutingModule,
   ],
   exports: [
     HomeComponent,

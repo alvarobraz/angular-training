@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DescriptionComponent } from '../pages/description/description.component';
+import { DescriptionComponent } from '../description/description.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { HeaderComponent } from './header/header.component';
 import { ModalComponent } from './modal/modal.component';
@@ -11,6 +11,8 @@ import { SummaryCardComponent } from './summary/summary-card/summary-card.compon
 import { SummaryComponent } from './summary/summary.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DescriptionRoutingModule } from '../description/description-routing.module';
+import { HomeRoutingModule } from '../home/home-routing.module';
 
 
 
@@ -24,12 +26,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     SummaryCardComponent,
     SearchFormComponent,
     SearchComponent,
-    DescriptionComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HomeRoutingModule,
+    DescriptionRoutingModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +44,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     SummaryCardComponent,
     SearchFormComponent,
     SearchComponent,
-    DescriptionComponent,
   ]
 })
 export class SharedModule { }
