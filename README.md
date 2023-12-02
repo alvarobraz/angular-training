@@ -37,23 +37,24 @@
 
 Este projeto de transações financeiras foi desenvolvido utilizando Angular CLI 16.X. Ele oferece a funcionalidade de salvar transações financeiras, permitindo a definição se são do tipo entrada ou saída. Além disso, proporciona recursos de edição, exclusão e listagem das transações. No âmbito do Angular, foram aplicados conceitos básicos à avançados, tais como:
 
-    Data Binding: Sincronização eficiente de dados entre a interface do usuário e o modelo.
-    Environments: Ambientes configurados para diferentes estágios de desenvolvimento.
-    Services para Injeção de Dependências: Utilização de serviços para uma gestão eficaz de dependências.
-    HttpClient e Observable: Integração com APIs através do HttpClient e observáveis para tratamento de assincronia
-    Diretivas Estruturais e de Atributos: Manipulação dinâmica da estrutura e do estilo dos componentes.
-    Pipes: Transformação de dados para apresentação.
-    Modularização e Componentização: Organização do projeto em módulos e componentes reutilizáveis.
-    TypeScript: Linguagem de programação tipada para desenvolvimento mais robusto.
-    Comunicação de Dados entre Componentes: Troca eficiente de informações entre diferentes partes da aplicação.
-    Reactive Forms com Validators: Utilização de formulários reativos para validação dinâmica.
-    Roteamento: Navegação entre diferentes seções da aplicação.
-    Getters de Funções para Clean Code: Utilização de boas práticas para um código limpo e legível.
-    Snackbar para Alertas e Modal: Exibição de alertas e modais para uma experiência do usuário mais amigável.
-    Reducers e Maps: Manipulação eficaz de estados e coleções de dados.
++**Data Binding:** Sincronização eficiente de dados entre a interface do usuário e o modelo.
++**Environments:** Ambientes configurados para diferentes estágios de desenvolvimento.
++**Services para Injeção de Dependências:** Utilização de serviços para uma gestão eficaz de dependências.
++**HttpClient e Observable:** Integração com APIs através do HttpClient e observáveis para tratamento de assincronia
++**Diretivas Estruturais e de Atributos:** Manipulação dinâmica da estrutura e do estilo dos componentes.
++**Pipes:** Transformação de dados para apresentação.
++**Modularização e Componentização:** Organização do projeto em módulos e componentes reutilizáveis.
++**TypeScript:** Linguagem de programação tipada para desenvolvimento mais robusto.
++**Comunicação de Dados entre Componentes:** Troca eficiente de informações entre diferentes partes da aplicação.
++**Reactive Forms com Validators:** Utilização de formulários reativos para validação dinâmica.
++**Roteamento:** Navegação entre diferentes seções da aplicação.
++**Getters de Funções para Clean Code:** Utilização de boas práticas para um código limpo e legível.
++**Snackbar para Alertas e Modal:** Exibição de alertas e modais para uma experiência do usuário mais amigável.
++**Reducers e Maps:** Manipulação eficaz de estados e coleções de dados.
 
 
-Um projeto desenvolvido com dedicação e paixão!
+Um projeto desenvolvido com dedicação e paixão!  
+
 Dev Mais Ágeis
 
 ## :angular: Tecnologias ##
@@ -156,7 +157,7 @@ As seguintes tecnologias foram utilizadas no projeto:
 $ git clone https://github.com/alvarobraz/angular-training
 
 # Version Node.js
-$ nvm use
+$ nvm use 16.14.1
 
 # Access
 $ cd angular-training
