@@ -51,6 +51,8 @@ Este projeto de transações financeiras foi desenvolvido utilizando Angular CLI
 + **Getters de Funções para Clean Code:** Utilização de boas práticas para um código limpo e legível.
 + **Snackbar para Alertas e Modal:** Exibição de alertas e modais para uma experiência do usuário mais amigável.
 + **Reducers e Maps:** Manipulação eficaz de estados e coleções de dados.
++ **Interceptors** Exibição de erro para melhor funcionamento da aplicação caso haja um erro do lado do dervidor ou do cliente.
++ **Lint** Para identificar e corrigir problemas no código-fonte.
 
 
 Um projeto desenvolvido com dedicação e paixão!  
