@@ -6,8 +6,8 @@
 
   <img alt="Language count" src="https://img.shields.io/github/repo-size/alvarobraz/angular-training"/>
 
-  <a href="https://www.udemy.com/?">
-    <img alt="Made by Udemy" src="https://img.shields.io/badge/made%20by-Udemy-%237519C1">
+  <a href="https://www.rocketseat.com.br/">
+    <img alt="Made by Rockteseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%237519C1">
   </a>
 
   <a href="https://www.linkedin.com/in/alvarobraz/">
