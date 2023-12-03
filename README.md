@@ -80,17 +80,30 @@ As seguintes tecnologias foram utilizadas no projeto:
 │   │   ├── app.component.ts
 │   │   ├── app.module.ts
 │   │   ├── app-routing.module.ts
+│   │   ├── description
+│   │   │   ├── description.component.html
+│   │   │   ├── description.component.scss
+│   │   │   ├── description.component.ts
+│   │   │   ├── description.module.ts
+│   │   │   └── description-routing.module.ts
+│   │   ├── error
+│   │   │   ├── error.module.ts
+│   │   │   ├── error-routing.module.ts
+│   │   │   ├── erros.interceptor.ts
+│   │   │   └── page-not-found
+│   │   │       ├── page-not-found.component.html
+│   │   │       ├── page-not-found.component.scss
+│   │   │       └── page-not-found.component.ts
+│   │   ├── home
+│   │   │   ├── home.component.html
+│   │   │   ├── home.component.scss
+│   │   │   ├── home.component.ts
+│   │   │   ├── home.module.ts
+│   │   │   └── home-routing.module.ts
+│   │   ├── material
+│   │   │   └── material.module.ts
 │   │   ├── model
 │   │   │   └── types.ts
-│   │   ├── pages
-│   │   │   ├── description
-│   │   │   │   ├── description.component.html
-│   │   │   │   ├── description.component.scss
-│   │   │   │   └── description.component.ts
-│   │   │   └── home
-│   │   │       ├── home.component.html
-│   │   │       ├── home.component.scss
-│   │   │       └── home.component.ts
 │   │   ├── services
 │   │   │   └── transactions.service.ts
 │   │   ├── shared
@@ -118,6 +131,7 @@ As seguintes tecnologias foram utilizadas no projeto:
 │   │   │   │       ├── search-form.component.html
 │   │   │   │       ├── search-form.component.scss
 │   │   │   │       └── search-form.component.ts
+│   │   │   ├── shared.module.ts
 │   │   │   └── summary
 │   │   │       ├── summary-card
 │   │   │       │   ├── summary-card.component.html
@@ -131,6 +145,7 @@ As seguintes tecnologias foram utilizadas no projeto:
 │   ├── assets
 │   │   └── logo.svg
 │   ├── config-scss
+│   │   ├── rem-calc.scss
 │   │   ├── reset.scss
 │   │   └── variables.scss
 │   ├── environments
@@ -143,6 +158,7 @@ As seguintes tecnologias foram utilizadas no projeto:
 ├── tsconfig.app.json
 ├── tsconfig.json
 └── tsconfig.spec.json
+
 
 
 ```
