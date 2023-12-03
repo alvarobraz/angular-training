@@ -4,7 +4,7 @@ import { TransactionsService } from 'src/app/services/transactions.service';
 import { calculateTotals, formatPrice } from 'src/app/utils/utils';
 
 @Component({
-  selector: 'summary',
+  selector: 'app-summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.scss']
 })
@@ -13,7 +13,7 @@ export class SummaryComponent implements OnInit {
   public priceIncome!: string
   public priceOutCome!: string
   public priceResult!: string
-  public query: string = ""
+  public query = ""
 
   constructor(private transactionsService: TransactionsService) {
     this.transactionsService.transactionSaved$.subscribe(() => {

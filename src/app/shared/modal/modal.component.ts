@@ -13,14 +13,14 @@ import { extractNumericOfTheValue, formatPrice } from 'src/app/utils/utils';
 })
 export class ModalComponent implements OnInit {
 
-  @Input() icon: string = ""
-  @Input() title: string = ""
+  @Input() icon = ""
+  @Input() title = ""
 
-  public description: string = ""
+  public description = ""
   public price!: number
-  public category: string = ""
-  public selectedType: string =  ""
-  public type: string =  ""
+  public category = ""
+  public selectedType =  ""
+  public type =  ""
 
   public getDados!: "income" | "outcome"
 

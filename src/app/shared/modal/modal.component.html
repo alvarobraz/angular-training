@@ -20,8 +20,8 @@
   </div>
   <input formControlName="type" type="hidden">
   <div class="buttons">
-    <transaction-type-button [type]="type" [selectedType]="selectedType" (enviarDados)="setDados($event)" variant="income" icon="arrow_circle_up" title="Entrada"/>
-    <transaction-type-button [type]="type" [selectedType]="selectedType" (enviarDados)="setDados($event)" variant="outcome" icon="arrow_circle_down" title="Saída"/>
+    <app-transaction-type-button [type]="type" [selectedType]="selectedType" (enviarDados)="setDados($event)" variant="income" icon="arrow_circle_up" title="Entrada"/>
+    <app-transaction-type-button [type]="type" [selectedType]="selectedType" (enviarDados)="setDados($event)" variant="outcome" icon="arrow_circle_down" title="Saída"/>
   </div>
   <div *ngIf="typeMethod === 'save'" class="actions" mat-dialog-actions>
     <button [disabled]="loading || !cadastroForm.valid" (click)="saveNewTransaction()" mat-button>{{loading ? 'Carregando' : 'Cadastrar'}}</button>

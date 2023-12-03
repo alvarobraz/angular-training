@@ -15,7 +15,7 @@ export class TransactionsService {
 
   private apiUrl: string = environment.apiUrl;
 
-  public durationInSeconds: number = 1
+  public durationInSeconds = 1
 
   private loadingSubject = new Subject<boolean>();
   public loading$: Observable<boolean> = this.loadingSubject.asObservable();
@@ -31,7 +31,7 @@ export class TransactionsService {
 
   public transactions!: TransactionSearch[]
 
-  public query: string = "";
+  public query = "";
 
   constructor(
     private httpClient: HttpClient,
@@ -111,8 +111,10 @@ export class TransactionsService {
     return allTransaction.pipe(
       tap( res => res ),
       tap( res => {
-        this.transactions = res.transactionSearch!
-        console.log(this.transactions)
+        if(res.transactionSearch?.length) {
+          this.transactions = res.transactionSearch
+        }
+        this.transactions = []
       })
     )
   }

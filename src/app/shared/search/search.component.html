@@ -1,5 +1,5 @@
 <main>
-  <search-form (emmitSearch)="getSearch($event)"></search-form>
+  <app-search-form (emmitSearch)="getSearch($event)"></app-search-form>
   <div *ngIf="!transactionsSearch.length" class="enpty-transactions">
     <h1>Não foi encontrada nenhuma transação até o momento!</h1>
   </div>

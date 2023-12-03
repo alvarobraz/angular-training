@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Transaction, TransactionSearch } from 'src/app/model/types';
 import { TransactionsService } from 'src/app/services/transactions.service';
@@ -6,14 +6,14 @@ import { formatTransactions } from 'src/app/utils/utils';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
-  selector: 'search',
+  selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
   public transactionsSearch: TransactionSearch[] = []
-  public query: string = ""
+  public query = ""
 
   constructor(
     private transactionsService: TransactionsService,
