@@ -3,11 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from '../shared/shared.module';
-// import { HomeRoutingModule } from './home-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 import { MatIconModule } from '@angular/material/icon';
-
-
-
 
 @NgModule({
   declarations: [
@@ -18,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
     MaterialModule,
     SharedModule,
     MatIconModule,
-    // HomeRoutingModule,
+    HomeRoutingModule,
   ],
   exports: [
     HomeComponent,

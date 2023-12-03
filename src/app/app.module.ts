@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { DescriptionModule } from './description/description.module';
+// import { DescriptionModule } from './description/description.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,6 @@ import { DescriptionModule } from './description/description.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    DescriptionModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
