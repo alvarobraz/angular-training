@@ -9,6 +9,7 @@ const routes: Routes = [
     path : '',
     loadChildren: () => import('./description/description.module').then(m => m.DescriptionModule)
   },
+  { path : '**', redirectTo: '404', pathMatch: 'full' },
 ];
 
 @NgModule({

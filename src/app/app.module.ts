@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
@@ -9,7 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-// import { DescriptionModule } from './description/description.module';
+import { ErrorModule } from './error/error.module';
+import { ErrosInterceptor } from './error/erros.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -24,8 +26,15 @@ import { HomeModule } from './home/home.module';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    ErrorModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrosInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
