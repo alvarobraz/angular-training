@@ -40,10 +40,10 @@ export class ErrosInterceptor implements HttpInterceptor {
 
         console.error( error);
         console.error(errorMessage);
-        this.transactionsService.openSnackBar(errorMessage, 'red')
+        this.transactionsService.openSnackBar(errorMessage, 'red');
 
         return throwError (() => new Error('Ops, ocorreu um erro!'));
        })
-    )
+    );
   }
 }

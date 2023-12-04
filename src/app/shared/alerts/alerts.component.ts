@@ -15,7 +15,7 @@ export class AlertsComponent {
     private snackBarRef: MatSnackBarRef<AlertsComponent>,
     @Inject(MAT_SNACK_BAR_DATA) public data: { title: string, colorBox: string }
   ) {
-    console.log(data)
+    console.log(data);
     if (data && data.title) {
       this.title = data.title;
     }

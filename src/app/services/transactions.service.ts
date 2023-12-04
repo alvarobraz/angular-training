@@ -15,7 +15,7 @@ export class TransactionsService {
 
   private apiUrl: string = environment.apiUrl;
 
-  public durationInSeconds = 1
+  public durationInSeconds = 1;
 
   private loadingSubject = new Subject<boolean>();
   public loading$: Observable<boolean> = this.loadingSubject.asObservable();
@@ -29,7 +29,7 @@ export class TransactionsService {
   private transactionDeletedSubject = new Subject<void>();
   public transactionDeleted$: Observable<void> = this.transactionDeletedSubject.asObservable();
 
-  public transactions!: TransactionSearch[]
+  public transactions!: TransactionSearch[];
 
   public query = "";
 
@@ -106,17 +106,17 @@ export class TransactionsService {
   }
 
   listTransaction(query: string): Observable<Partial<Transaction>> {
-    const sort =  'desc'
+    const sort =  'desc';
     const allTransaction =  this.httpClient.get<Partial<Transaction>>(`${this.apiUrl}transactions/?name=${query}&sort=${sort}`);
     return allTransaction.pipe(
       tap( res => res ),
       tap( res => {
         if(res.transactionSearch?.length) {
-          this.transactions = res.transactionSearch
+          this.transactions = res.transactionSearch;
         }
-        this.transactions = []
+        this.transactions = [];
       })
-    )
+    );
   }
 
 

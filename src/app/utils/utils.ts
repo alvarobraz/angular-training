@@ -3,7 +3,7 @@ import { TransactionSearch } from "../model/types";
 export const priceFormatter = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
   currency: 'BRL',
-})
+});
 
 export function calculateTotals(transactions: TransactionSearch[]): { income: number; outcome: number } {
   return transactions.reduce(
@@ -21,12 +21,12 @@ export function calculateTotals(transactions: TransactionSearch[]): { income: nu
 
 export function formatPrice(price: string): string {
 
-  let numericPrice = 0
+  let numericPrice = 0;
 
   if (price.startsWith("R$")) {
-    numericPrice = parseFloat(price.replace(/\D/g, '')) / 100
+    numericPrice = parseFloat(price.replace(/\D/g, '')) / 100;
   } else {
-    numericPrice = parseFloat(price) / 100
+    numericPrice = parseFloat(price) / 100;
   }
 
   return numericPrice.toLocaleString('pt-BR', {

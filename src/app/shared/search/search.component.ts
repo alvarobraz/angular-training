@@ -12,8 +12,8 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class SearchComponent implements OnInit {
 
-  public transactionsSearch: TransactionSearch[] = []
-  public query = ""
+  public transactionsSearch: TransactionSearch[] = [];
+  public query = "";
 
   constructor(
     private transactionsService: TransactionsService,
@@ -51,7 +51,7 @@ export class SearchComponent implements OnInit {
   }
 
   public getTransactionToUpdate(transaction: TransactionSearch): void {
-    console.log(transaction)
+    console.log(transaction);
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
         transactionSearch: transaction
@@ -64,7 +64,7 @@ export class SearchComponent implements OnInit {
   }
 
   public deleteTransaction(transactionId: string): void {
-    this.transactionsService.delete(transactionId)
+    this.transactionsService.delete(transactionId);
   }
 
 }

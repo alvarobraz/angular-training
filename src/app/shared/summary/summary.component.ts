@@ -10,10 +10,10 @@ import { calculateTotals, formatPrice } from 'src/app/utils/utils';
 })
 export class SummaryComponent implements OnInit {
 
-  public priceIncome!: string
-  public priceOutCome!: string
-  public priceResult!: string
-  public query = ""
+  public priceIncome!: string;
+  public priceOutCome!: string;
+  public priceResult!: string;
+  public query = "";
 
   constructor(private transactionsService: TransactionsService) {
     this.transactionsService.transactionSaved$.subscribe(() => {
@@ -41,7 +41,7 @@ export class SummaryComponent implements OnInit {
 
           this.priceIncome = formatPrice(income.toString());
           this.priceOutCome = formatPrice(outcome.toString());
-          const result = income - outcome
+          const result = income - outcome;
           this.priceResult = formatPrice(result.toString());
         }
       }

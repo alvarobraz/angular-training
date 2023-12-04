@@ -7,36 +7,36 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angu
 })
 export class TransactionTypeButtonComponent implements OnInit, OnChanges {
 
-  @Input() icon = ""
-  @Input() title = ""
-  @Input() variant = ""
+  @Input() icon = "";
+  @Input() title = "";
+  @Input() variant = "";
 
-  @Input() type = ""
+  @Input() type = "";
 
-  @Input() selectedType = ''
+  @Input() selectedType = '';
 
-  @Output() public enviarDados = new EventEmitter()
+  @Output() public enviarDados = new EventEmitter();
 
   ngOnInit(): void {
-    console.log(this.selectedType)
+    console.log(this.selectedType);
   }
 
   ngOnChanges(): void {
-    console.log('ngOnChanges() => '+this.selectedType)
+    console.log('ngOnChanges() => '+this.selectedType);
   }
 
   public getDados(type: string) {
     if(type === 'outcome') {
-      this.type = 'outcome'
-      this.selectedType = ""
-      console.log('getDados() => '+this.type)
+      this.type = 'outcome';
+      this.selectedType = "";
+      console.log('getDados() => '+this.type);
     }
     else {
-      this.type = 'income'
-      this.selectedType = ""
+      this.type = 'income';
+      this.selectedType = "";
       // console.log('getDados() => '+this.type)
     }
-    this.enviarDados.emit(this.type)
+    this.enviarDados.emit(this.type);
   }
 
 }

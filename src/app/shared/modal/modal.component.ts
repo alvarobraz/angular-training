@@ -13,19 +13,19 @@ import { extractNumericOfTheValue, formatPrice } from 'src/app/utils/utils';
 })
 export class ModalComponent implements OnInit {
 
-  @Input() icon = ""
-  @Input() title = ""
+  @Input() icon = "";
+  @Input() title = "";
 
-  public description = ""
-  public price!: number
-  public category = ""
-  public selectedType =  ""
-  public type =  ""
+  public description = "";
+  public price!: number;
+  public category = "";
+  public selectedType =  "";
+  public type =  "";
 
-  public getDados!: "income" | "outcome"
+  public getDados!: "income" | "outcome";
 
   public loading!: boolean;
-  public typeMethod: "save" | "update" = "save"
+  public typeMethod: "save" | "update" = "save";
 
   public cadastroForm: FormGroup;
 
@@ -78,9 +78,9 @@ export class ModalComponent implements OnInit {
   saveNewTransaction() {
 
     this.priceToNumber = extractNumericOfTheValue(this.cadastroForm.get('price')?.value);
-    console.log('priceToNumber =>'+this.priceToNumber)
+    console.log('priceToNumber =>'+this.priceToNumber);
 
-    this.transactionsService.save(this.cadastroForm.value.description, this.getDados, this.cadastroForm.value.category, Number(this.priceToNumber))
+    this.transactionsService.save(this.cadastroForm.value.description, this.getDados, this.cadastroForm.value.category, Number(this.priceToNumber));
     this.transactionsService.loading$.subscribe(
       (isLoading: boolean) => {
         this.loading = isLoading;
@@ -90,7 +90,7 @@ export class ModalComponent implements OnInit {
 
   updateTransaction() {
     this.priceToNumber = extractNumericOfTheValue(this.cadastroForm.get('price')?.value);
-    this.transactionsService.update(this.cadastroForm.value.id, this.cadastroForm.value.description, this.getDados, this.cadastroForm.value.category, Number(this.priceToNumber))
+    this.transactionsService.update(this.cadastroForm.value.id, this.cadastroForm.value.description, this.getDados, this.cadastroForm.value.category, Number(this.priceToNumber));
     this.transactionsService.loading$.subscribe(
       (isLoading: boolean) => {
         this.loading = isLoading;

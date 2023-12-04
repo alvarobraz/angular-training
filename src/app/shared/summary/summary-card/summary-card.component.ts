@@ -7,9 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class SummaryCardComponent {
 
-  @Input() title!: string
-  @Input() price!: string
-  @Input() icon!: string
-  @Input() variant!: string
+  @Input() title!: string;
+  @Input() price!: string;
+  @Input() icon!: string;
+  @Input() variant!: string;
 
 }
